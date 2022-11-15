@@ -1,0 +1,197 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "simulation skill",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "nameIntent",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "{name}"
+              ]
+            }
+          ],
+          "samples": [
+            "my name is {name}",
+            "{name}"
+          ]
+        },
+        {
+          "name": "drinkChoiceIntent",
+          "slots": [
+            {
+              "name": "drink",
+              "type": "beverage",
+              "samples": [
+                "i want a {drink}",
+                "{drink}"
+              ]
+            }
+          ],
+          "samples": [
+            "my favourite drink is {drink}",
+            "i want a {drink}",
+            "{drink}",
+            "a {drink} please"
+          ]
+        },
+        {
+          "name": "SayDrinkIntent",
+          "slots": [],
+          "samples": [
+            "i want the usual",
+            "tell me my favourite drink"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "tea"
+              }
+            },
+            {
+              "name": {
+                "value": "coke"
+              }
+            },
+            {
+              "name": {
+                "value": "water"
+              }
+            },
+            {
+              "name": {
+                "value": "coffe"
+              }
+            }
+          ],
+          "name": "AMAZON.Drink"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "coke"
+              }
+            },
+            {
+              "name": {
+                "value": "water"
+              }
+            },
+            {
+              "name": {
+                "value": "tea"
+              }
+            },
+            {
+              "name": {
+                "value": "coffe"
+              }
+            }
+          ],
+          "name": "beverage"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "nameIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.446984849497.1662883814066"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "drinkChoiceIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "drink",
+              "type": "beverage",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.915985227488.32291225988"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.446984849497.1662883814066",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "tell me again"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.915985227488.32291225988",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "i don\u0027t have it, name another one"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "8"
+}
